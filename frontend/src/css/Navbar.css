@@ -42,14 +42,6 @@
     transition: 0.5s;
 }
 
-.NavbarSectionRight div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-
-}
-
 .NavbarSectionLeft button:hover, .NavbarSectionRight:hover {
     text-decoration: underline;
 }
@@ -97,7 +89,8 @@
 
 .VerticalLine{
     position: relative;
-
+    display: flex;
+    flex-direction: column;
 }
 
 .numberOfProducts {
