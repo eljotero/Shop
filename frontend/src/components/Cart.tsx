@@ -1,24 +1,29 @@
 import { useSelector, useDispatch } from 'react-redux';
-import {removeFromCart} from '../redux/slicers/cartSlicer';
+import { removeFromCart} from '../redux/slicers/cartSlicer';
 import type { RootState } from '../redux/store';
+import '../css/Cart.css';
 
 function Cart () {
 
-    const dispatch = useDispatch();
     const cart = useSelector((state: RootState) => state.cart.root);
+    const dispatch = useDispatch();
+
+    if (cart.length === 0) {
+        return (
+            <div></div>
+        );
+    }
 
     return (
-        <div>
-            <ul>
-                {cart.map((product) => (
-                    <li key={product.productId}>
-                        <span> {product.productName} </span>
-                        <span> {product.productPrice} </span>
-                        <span> {product.quantity} </span>
-                        <button onClick={() => dispatch(removeFromCart(product.productId))}>Remove</button>
-                    </li>
-                ))}
-            </ul>
+        <div className="cartContainer">
+            {cart.map((product) => (
+                <div className="cartProduct" key={product.productId}>
+                    <p>{product.productName}</p>
+                    <p>{product.productPrice} PLN</p>
+                    <p>{product.quantity}</p>
+                    <button onClick={() => dispatch(removeFromCart(product.productId))}>X</button>
+                </div>
+            ))}
         </div>
     );
 

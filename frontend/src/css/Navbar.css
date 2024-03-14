@@ -12,6 +12,9 @@
 .NavbarSectionLeft,
 .NavbarSectionRight,
 .NavbarSectionCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: -50px;
     width: 500px;
     cursor: pointer;
@@ -37,6 +40,14 @@
     font-family: logoFont;
     text-decoration-color: transparent;
     transition: 0.5s;
+}
+
+.NavbarSectionRight div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
 }
 
 .NavbarSectionLeft button:hover, .NavbarSectionRight:hover {
@@ -67,6 +78,7 @@
 }
 
 .CartButton {
+    position: relative;
     background-image: url('../assets/cart.ico');
 }
 
@@ -81,6 +93,18 @@
     text-transform: uppercase;
     animation: waviy 5s infinite linear;
     animation-delay: calc(.2s * var(--i));
+}
+
+.VerticalLine{
+    position: relative;
+
+}
+
+.numberOfProducts {
+    position: absolute;
+    top: -45px;
+    left: 35px;
+    color: white;
 }
 
 @keyframes waviy {

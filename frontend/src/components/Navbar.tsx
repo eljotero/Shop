@@ -1,10 +1,18 @@
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import type { RootState } from '../redux/store';
+import Cart from '../components/Cart';
 import '../css/Navbar.css'
 
 function Navbar() {
 
+    const [showCart, setShowCart] = useState(false);
+    const products = useSelector((state: RootState) => state.cart.root);
+    const sumOfProducts = products.reduce((acc, product) => acc + product.quantity, 0);
+
     function navigateTo(path: string) { 
         window.location.href = path;
-      }
+    }
 
     return (
         <div className='NavbarContainer'>
@@ -27,13 +35,15 @@ function Navbar() {
                     <span style={{ '--i': 3 } as React.CSSProperties}>A</span>
                     <span style={{ '--i': 2 } as React.CSSProperties}>T</span>
                     <span style={{ '--i': 1 } as React.CSSProperties}>S</span>
-
                 </div>
             </div>
             <div className='NavbarSectionRight'>
                 <button className='SearchButton'></button>
                 <button className='AccountButton'></button>
-                <button className='CartButton' onClick={() => navigateTo('/cart')}></button>
+                <div className='VerticalLine'>
+                    <button className='CartButton' onClick={() => setShowCart(!showCart)}><p className='numberOfProducts'>{sumOfProducts}</p></button>
+                </div>
+                {showCart && <Cart />}
             </div>
         </div>
     );

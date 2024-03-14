@@ -5,6 +5,7 @@ import type { RootState } from '../redux/store';
 import { addToCart } from "../redux/slicers/cartSlicer";
 import Promocode from "../components/Promocode";
 import Navbar from "../components/Navbar";
+import Cart from '../components/Cart';
 import Sorting from "../components/Sorting";
 import Footer from "../components/Footer";
 import "../css/Shop.css";

@@ -5,8 +5,13 @@ import ProductView from '../pages/ProductView';
 import Cart from '../components/Cart';
 import AboutUs from '../pages/AboutUs';
 import Contact from '../pages/Contact';
+import { useState } from 'react';
 
 function App() {
+
+
+    const [showCart, setShowCart] = useState(false);
+
     return (
         <Router>
             <Routes>
